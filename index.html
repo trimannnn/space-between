@@ -384,9 +384,9 @@ function rebuildContent(rid){
   r.images.forEach((item,idx)=>{
     const ang=(idx/r.images.length)*Math.PI*2,ox=Math.cos(ang)*1.2,oz=Math.sin(ang)*1.2;
     const asp=(item.tex.image.width||1)/(item.tex.image.height||1);
-    const ph=0.9,iw=ph*asp<1.2?ph*asp:1.2,ih=iw/asp;
+    const ph=0.42,iw=ph*asp<0.55?ph*asp:0.55,ih=iw/asp;
     const mesh=new THREE.Mesh(new THREE.PlaneGeometry(iw,ih),new THREE.MeshStandardMaterial({map:item.tex,roughness:.8,metalness:0,side:THREE.DoubleSide,transparent:true,opacity:.85}));
-    mesh.position.set(ox,.1,oz);mesh.userData.bb=true;r.grp.add(mesh);r.cms.push(mesh);
+    mesh.position.set(ox*.7,.1,oz*.7);mesh.userData.bb=true;r.grp.add(mesh);r.cms.push(mesh);
   });
 }
 
